@@ -2,7 +2,7 @@
 
 - [Korean(한국어)](#Korean)
 - [English(영어)](#English)
-- [Commands(명령어들)](https://github.com/NKPy/NKPy/blob/master/vars.py)
+- [Commands(명령어들)](https://github.com/NKPy/NKPy/blob/master/nkpy/vars.py)
 
 ## Korean
 NKPy를 선택해 주셔서 감사합니다!
