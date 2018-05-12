@@ -7,6 +7,7 @@ cmds = vars.cmds
 
 
 def run(a):
+    global cmds
 
     a = a.replace('큰따옴표', '"')
     a = a.replace('작은따옴표', "'")
@@ -29,6 +30,7 @@ def run(a):
         a = a.replace('^', m[0], 1)
 
     exec(a)
+
 
 if sys.argv is not None:
     try:
