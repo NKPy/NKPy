@@ -40,7 +40,10 @@ def run(a, excu=True):
 
     b = re.findall(r'\'(.+?)\'|"(.+?)"', a)
     for m in b:
-        a = a.replace(m[0], '^')
+        if m[0] != '':
+            a = a.replace(m[0], '^')
+        if m[1] != '':
+            a = a.replace(m[1], '^')
 
     for m in cmds.values():
         bol = False
@@ -59,7 +62,10 @@ def run(a, excu=True):
         a = a.replace(n, cmds[n])
 
     for m in b:
-        a = a.replace('^', m[0], 1)
+        if m[0] != '':
+            a = a.replace('^', m[0], 1)
+        if m[1] != '':
+            a = a.replace('^', m[1], 1)
 
     a = "import sys\nsys.path.insert(0, '{}')\n\n".format(os.getcwd()) + a
 
