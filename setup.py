@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='NKPy',
 
-      version='0.1.3',
+      version='0.1.20',
 
       url='https://github.com/NKPy/NKPy',
 
