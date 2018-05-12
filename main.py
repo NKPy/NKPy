@@ -5,9 +5,8 @@ import utils
 
 cmds = vars.cmds
 
-if sys.argv is not None:
-    with open(sys.argv[1], 'r') as v:
-        a = v.read()
+
+def run(a):
 
     a = a.replace('큰따옴표', '"')
     a = a.replace('작은따옴표', "'")
@@ -30,3 +29,14 @@ if sys.argv is not None:
         a = a.replace('^', m[0], 1)
 
     exec(a)
+
+if sys.argv is not None:
+    try:
+        with open(sys.argv[1], 'r') as v:
+            a = v.read()
+        run(a)
+    except FileNotFoundError:
+        a = ' '.join(sys.argv)
+        b = a.find(sys.argv[1])
+        a = a[b:]
+        run(a)
