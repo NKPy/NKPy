@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='NKPy',
 
-      version='0.1.22',
+      version='0.1.26',
 
       url='https://github.com/NKPy/NKPy',
 
@@ -14,11 +14,11 @@ setup(name='NKPy',
 
       description='Nanhe Korean Python',
 
-      packages=['nkpy'],
+      packages=['nkpy', 'py2nkpy'],
 
       long_description=open('README.md').read(),
 
       zip_safe=False,
 
-      scripts=['bin/nkpy']
+      scripts=['bin/nkpy', 'bin/py2nkpy']
       )

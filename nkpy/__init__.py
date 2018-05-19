@@ -28,7 +28,6 @@ def run(a, excu=True):
                 for c in n:
                     v.append(c)
 
-
     for m in v:
         j = glob.glob('{}.nkpy'.format(m), recursive=True)
         for x in j:
@@ -38,12 +37,12 @@ def run(a, excu=True):
                     write_some = run(b.read(), excu=False)
                     h.write(write_some)
 
-    b = re.findall(r'\'(.+?)\'|"(.+?)"', a)
+    b = re.findall(r'\'\'\'(.+?)\'\'\'|"""(.+?)"""|\'(.+?)\'|"(.+?)"', a)
     for m in b:
         if m[0] != '':
-            a = a.replace(m[0], '^')
+            a = a.replace(m[0], '^', 1)
         if m[1] != '':
-            a = a.replace(m[1], '^')
+            a = a.replace(m[1], '^', 1)
 
     for m in cmds.values():
         bol = False
@@ -53,7 +52,7 @@ def run(a, excu=True):
                 h = len(c)
                 y = a.find(c)
                 for u in range(h):
-                    if a[y+u] == a[n]:
+                    if a[y + u] == a[n]:
                         bol = True
             if not bol:
                 raise SyntaxError('원래 있던 그런거는 쓰지 말아요. 이제 nkpy가 있으니깐요. {}에서 틀리셨습니다.'.format(a[n - 2] + a[n - 1] + a[n] + a[n + 1] + a[n + 2]))
@@ -102,6 +101,7 @@ def rrun():
             atexit.register(on_exit, c)
         except IndexError:
             exit()
+
 
 if __name__ == '__main__':
     rrun()
